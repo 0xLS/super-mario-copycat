@@ -11,7 +11,10 @@ var last_direction = 1
 
 func jump():
 	velocity.y = JUMP_VELOCITY
-	
+
+func sideJump(x):
+	velocity.y = JUMP_VELOCITY
+	velocity.x = x
 
 func _physics_process(delta: float) -> void:
 	# Animations
