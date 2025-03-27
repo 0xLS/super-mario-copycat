@@ -1,0 +1,66 @@
+[gd_scene load_steps=4 format=3 uid="uid://cn48i3uws4br0"]
+
+[ext_resource type="Texture2D" uid="uid://b3qp7x1o830es" path="res://images/Brown.png" id="1_fgeyc"]
+[ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_wobl1"]
+[ext_resource type="Texture2D" uid="uid://oeasprdxb36y" path="res://images/Logo.png" id="2_fhfeq"]
+
+[node name="MainMenu" type="Node"]
+script = ExtResource("1_wobl1")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_fgeyc")
+stretch_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -518.0
+offset_top = -117.0
+offset_right = 515.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_fhfeq")
+
+[node name="play" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -282.0
+offset_top = 66.0
+offset_right = -67.0
+offset_bottom = 142.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Play
+"
+
+[node name="quit" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 100.0
+offset_top = 66.0
+offset_right = 315.0
+offset_bottom = 142.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Quit"
+
+[connection signal="pressed" from="play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]
