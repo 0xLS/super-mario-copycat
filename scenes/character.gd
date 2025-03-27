@@ -7,6 +7,7 @@ const JUMP_VELOCITY = -900.0
 
 # Get gravity from the project settings
 var gravity = ProjectSettings.get_setting('physics/2d/default_gravity')
+var last_direction = 1
 
 func _physics_process(delta: float) -> void:
 	# Animations
@@ -29,10 +30,10 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("left", "right")
 	if direction:
 		velocity.x = direction * SPEED
+		last_direction = direction
 	else:
 		velocity.x = move_toward(velocity.x, 0, 25)
 
 	move_and_slide()
 	
-	var isLeft = velocity.x < 0
-	sprite_2d.flip_h = isLeft
+	sprite_2d.flip_h = last_direction < 0

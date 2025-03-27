@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bpwbkpj2s26cd"]
+[gd_scene load_steps=12 format=3 uid="uid://bpwbkpj2s26cd"]
 
 [ext_resource type="Script" path="res://game_manager.gd" id="1_pwswk"]
 [ext_resource type="Texture2D" uid="uid://c3khbggbpqgse" path="res://images/Blue.png" id="2_0yhwj"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c4q7inio8iaqt" path="res://scenes/strawberry.tscn" id="6_27qi6"]
 [ext_resource type="PackedScene" uid="uid://c548wplfswymr" path="res://scenes/level2.tscn" id="7_hkucc"]
 [ext_resource type="PackedScene" uid="uid://bufehfj38qhkj" path="res://scenes/End.tscn" id="7_nr0nw"]
+[ext_resource type="AudioStream" uid="uid://84qee5bhq8m4" path="res://Sounds/Music/level1.ogg" id="9_io8ng"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0j1r8"]
 texture = ExtResource("3_63uon")
@@ -283,3 +284,8 @@ vertical_alignment = 1
 
 [node name="CharacterBody2D2" parent="." instance=ExtResource("5_gwwk5")]
 position = Vector2(419, 197)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_io8ng")
+volume_db = -27.171
+autoplay = true
