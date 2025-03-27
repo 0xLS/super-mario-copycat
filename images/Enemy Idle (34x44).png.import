@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxxtr30jv38ex"
-path="res://.godot/imported/Run (32x32).png-448439aeb8095dde0c51c1fbc2bea5a9.ctex"
+uid="uid://c33ef7ft8b8vu"
+path="res://.godot/imported/Enemy Idle (34x44).png-249a4dffa4a8cfe7e310bf7195b8031f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Run (32x32).png"
-dest_files=["res://.godot/imported/Run (32x32).png-448439aeb8095dde0c51c1fbc2bea5a9.ctex"]
+source_file="res://images/Enemy Idle (34x44).png"
+dest_files=["res://.godot/imported/Enemy Idle (34x44).png-249a4dffa4a8cfe7e310bf7195b8031f.ctex"]
 
 [params]
 
