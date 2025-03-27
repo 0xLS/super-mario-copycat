@@ -188,7 +188,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tm7kr"]
-size = Vector2(54, 69)
+size = Vector2(54, 58)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_1ynhm")
@@ -201,5 +201,5 @@ sprite_frames = SubResource("SpriteFrames_7pco5")
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(23, 28.5)
+position = Vector2(23, 31)
 shape = SubResource("RectangleShape2D_tm7kr")
