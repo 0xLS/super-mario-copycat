@@ -1,29 +1,8 @@
-[gd_scene load_steps=35 format=3 uid="uid://ce8ogykdow5s"]
+[gd_scene load_steps=27 format=3 uid="uid://ce8ogykdow5s"]
 
 [ext_resource type="Script" path="res://scenes/enemy.gd" id="1_f158n"]
 [ext_resource type="Texture2D" uid="uid://c33ef7ft8b8vu" path="res://images/bunny/Enemy Idle (34x44).png" id="1_uf0ds"]
-[ext_resource type="Texture2D" uid="uid://coorvad113uqc" path="res://images/bunny/Hit (34x44).png" id="2_02xa1"]
 [ext_resource type="Texture2D" uid="uid://tk07d7en15gx" path="res://images/bunny/Run (34x44).png" id="3_307au"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_i038p"]
-atlas = ExtResource("2_02xa1")
-region = Rect2(0, 0, 34, 44)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_58g2c"]
-atlas = ExtResource("2_02xa1")
-region = Rect2(34, 0, 34, 44)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_806ht"]
-atlas = ExtResource("2_02xa1")
-region = Rect2(68, 0, 34, 44)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nc6si"]
-atlas = ExtResource("2_02xa1")
-region = Rect2(102, 0, 34, 44)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_eg7b1"]
-atlas = ExtResource("2_02xa1")
-region = Rect2(136, 0, 34, 44)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ngrxq"]
 atlas = ExtResource("1_uf0ds")
@@ -109,26 +88,6 @@ region = Rect2(374, 0, 34, 44)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_i038p")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_58g2c")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_806ht")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nc6si")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_eg7b1")
-}],
-"loop": false,
-"name": &"death",
-"speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_ngrxq")
 }, {
 "duration": 1.0,
@@ -195,20 +154,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"run",
-"speed": 20.0
+"speed": 25.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lyokv"]
-size = Vector2(35, 31)
+size = Vector2(53, 66)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_bfp3s"]
-radius = 115.156
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_c54pr"]
-size = Vector2(32, 42)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_o0vpq"]
-size = Vector2(45, 26)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2utya"]
+size = Vector2(257, 50)
 
 [node name="Enemy" type="CharacterBody2D"]
 script = ExtResource("1_f158n")
@@ -218,32 +171,14 @@ texture_filter = 1
 position = Vector2(15.5, 13.5)
 scale = Vector2(1.91176, 1.61364)
 sprite_frames = SubResource("SpriteFrames_2wiq5")
-animation = &"death"
-autoplay = "idle"
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(14, 31.5)
+position = Vector2(12.5, 16)
 shape = SubResource("RectangleShape2D_lyokv")
 
-[node name="PlayerDetection" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
-position = Vector2(11, 24)
-shape = SubResource("CircleShape2D_bfp3s")
-
-[node name="PlayerDeath" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDeath"]
-position = Vector2(14, 25)
-shape = SubResource("RectangleShape2D_c54pr")
-
-[node name="PlayerCollision" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCollision"]
-position = Vector2(12.5, 33)
-shape = SubResource("RectangleShape2D_o0vpq")
-
-[connection signal="body_entered" from="PlayerDetection" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="PlayerDetection" to="." method="_on_area_2d_body_exited"]
-[connection signal="body_entered" from="PlayerDeath" to="." method="_on_player_death_body_entered"]
-[connection signal="body_entered" from="PlayerCollision" to="." method="_on_player_collision_body_entered"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(11.5, 24)
+shape = SubResource("RectangleShape2D_2utya")
