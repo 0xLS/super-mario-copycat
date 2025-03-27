@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://c548wplfswymr"]
+[gd_scene load_steps=10 format=3 uid="uid://2wy4r78v8eup"]
 
 [ext_resource type="Script" path="res://game_manager.gd" id="1_0pt7d"]
 [ext_resource type="Texture2D" uid="uid://c3khbggbpqgse" path="res://images/Blue.png" id="2_dqp68"]
 [ext_resource type="Texture2D" uid="uid://dovsats1kxb66" path="res://images/Terrain (16x16).png" id="3_5rcbe"]
 [ext_resource type="PackedScene" uid="uid://bcyl180yl4444" path="res://scenes/character.tscn" id="4_3jryt"]
 [ext_resource type="PackedScene" uid="uid://bufehfj38qhkj" path="res://scenes/End.tscn" id="7_1832w"]
+[ext_resource type="Texture2D" uid="uid://bu1x3ccig0xkq" path="res://images/heart.png" id="8_1yc0k"]
+[ext_resource type="AudioStream" uid="uid://84qee5bhq8m4" path="res://Sounds/Music/level1.ogg" id="9_c4bl5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0j1r8"]
 texture = ExtResource("3_5rcbe")
@@ -191,9 +193,10 @@ sources/0 = SubResource("TileSetAtlasSource_0j1r8")
 
 [node name="Node" type="Node"]
 
-[node name="GameManager" type="Node" parent="."]
+[node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("hearts")]
 unique_name_in_owner = true
 script = ExtResource("1_0pt7d")
+hearts = [NodePath("../UI/HeartsPanel/HBoxContainer/Heart"), NodePath("../UI/HeartsPanel/HBoxContainer/Heart2"), NodePath("../UI/HeartsPanel/HBoxContainer/Heart3")]
 
 [node name="SceneObjects" type="Node" parent="."]
 
@@ -224,7 +227,9 @@ position_smoothing_speed = 7.0
 [node name="Collectables group" type="Node" parent="SceneObjects"]
 
 [node name="End" parent="SceneObjects" instance=ExtResource("7_1832w")]
-position = Vector2(2268, 498)
+position = Vector2(2254, 495)
+
+[node name="Enemies" type="Node" parent="SceneObjects"]
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -246,3 +251,45 @@ theme_override_font_sizes/font_size = 30
 text = "Points: 0"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="HeartsPanel" type="Panel" parent="UI"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -195.0
+offset_top = 20.0
+offset_right = -12.0
+offset_bottom = 77.0
+grow_horizontal = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/HeartsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Heart" type="TextureRect" parent="UI/HeartsPanel/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("8_1yc0k")
+expand_mode = 2
+
+[node name="Heart2" type="TextureRect" parent="UI/HeartsPanel/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("8_1yc0k")
+expand_mode = 2
+
+[node name="Heart3" type="TextureRect" parent="UI/HeartsPanel/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("8_1yc0k")
+expand_mode = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_c4bl5")
+volume_db = -27.171
+autoplay = true
