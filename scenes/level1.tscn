@@ -223,9 +223,6 @@ position = Vector2(28, 30)
 position_smoothing_enabled = true
 position_smoothing_speed = 7.0
 
-[node name="CharacterBody2D2" parent="SceneObjects" instance=ExtResource("5_gwwk5")]
-position = Vector2(415, 189)
-
 [node name="Collectables group" type="Node" parent="SceneObjects"]
 
 [node name="Collectable" parent="SceneObjects/Collectables group" instance=ExtResource("6_27qi6")]
@@ -281,3 +278,6 @@ theme_override_font_sizes/font_size = 30
 text = "Points: 0"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="CharacterBody2D2" parent="." instance=ExtResource("5_gwwk5")]
+position = Vector2(419, 197)

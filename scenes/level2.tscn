@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://c548wplfswymr"]
+[gd_scene load_steps=8 format=3 uid="uid://c548wplfswymr"]
 
 [ext_resource type="Script" path="res://game_manager.gd" id="1_0pt7d"]
 [ext_resource type="Texture2D" uid="uid://c3khbggbpqgse" path="res://Blue.png" id="2_dqp68"]
 [ext_resource type="Texture2D" uid="uid://dovsats1kxb66" path="res://Terrain (16x16).png" id="3_5rcbe"]
 [ext_resource type="PackedScene" uid="uid://bcyl180yl4444" path="res://scenes/character.tscn" id="4_3jryt"]
-[ext_resource type="PackedScene" uid="uid://ce8ogykdow5s" path="res://scenes/enemy.tscn" id="5_m7k3l"]
 [ext_resource type="PackedScene" uid="uid://bufehfj38qhkj" path="res://scenes/End.tscn" id="7_1832w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0j1r8"]
@@ -221,9 +220,6 @@ position = Vector2(216, 492)
 position = Vector2(28, 30)
 position_smoothing_enabled = true
 position_smoothing_speed = 7.0
-
-[node name="CharacterBody2D2" parent="SceneObjects" instance=ExtResource("5_m7k3l")]
-position = Vector2(415, 189)
 
 [node name="Collectables group" type="Node" parent="SceneObjects"]
 
