@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bpwbkpj2s26cd"]
+[gd_scene load_steps=12 format=3 uid="uid://bpwbkpj2s26cd"]
 
 [ext_resource type="Script" path="res://game_manager.gd" id="1_pwswk"]
 [ext_resource type="Texture2D" uid="uid://c3khbggbpqgse" path="res://images/Blue.png" id="2_0yhwj"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c4q7inio8iaqt" path="res://scenes/strawberry.tscn" id="6_27qi6"]
 [ext_resource type="PackedScene" uid="uid://c548wplfswymr" path="res://scenes/level2.tscn" id="7_hkucc"]
 [ext_resource type="PackedScene" uid="uid://bufehfj38qhkj" path="res://scenes/End.tscn" id="7_nr0nw"]
+[ext_resource type="Texture2D" uid="uid://bu1x3ccig0xkq" path="res://images/heart.png" id="9_n373c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0j1r8"]
 texture = ExtResource("3_63uon")
@@ -253,22 +254,25 @@ position = Vector2(1915, 104)
 [node name="Collectable9" parent="SceneObjects/Collectables group" instance=ExtResource("6_27qi6")]
 position = Vector2(2109, 206)
 
+[node name="Collectable10" parent="SceneObjects/Collectables group" instance=ExtResource("6_27qi6")]
+position = Vector2(2305, 61)
+
 [node name="End" parent="SceneObjects" instance=ExtResource("7_nr0nw")]
 position = Vector2(2247, 355)
 target_level = ExtResource("7_hkucc")
 
-[node name="Collectable" parent="SceneObjects" instance=ExtResource("6_27qi6")]
-position = Vector2(2305, 61)
+[node name="Enemy" parent="SceneObjects" instance=ExtResource("5_gwwk5")]
+position = Vector2(419, 197)
 
 [node name="UI" type="CanvasLayer" parent="."]
 
-[node name="Panel" type="Panel" parent="UI"]
+[node name="PointsPanel" type="Panel" parent="UI"]
 offset_left = 18.0
 offset_top = 17.0
 offset_right = 201.0
 offset_bottom = 75.0
 
-[node name="PointsLabel" type="Label" parent="UI/Panel"]
+[node name="PointsLabel" type="Label" parent="UI/PointsPanel"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -281,5 +285,45 @@ text = "Points: 0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CharacterBody2D2" parent="." instance=ExtResource("5_gwwk5")]
-position = Vector2(419, 197)
+[node name="HealthPanel" type="Panel" parent="UI"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -201.0
+offset_top = 21.0
+offset_right = -19.0
+offset_bottom = 79.0
+grow_horizontal = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/HealthPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = -28.0
+offset_right = 90.0
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Heart" type="TextureRect" parent="UI/HealthPanel/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("9_n373c")
+expand_mode = 2
+
+[node name="Heart2" type="TextureRect" parent="UI/HealthPanel/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("9_n373c")
+expand_mode = 2
+
+[node name="Heart3" type="TextureRect" parent="UI/HealthPanel/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("9_n373c")
+expand_mode = 2
