@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://ce8ogykdow5s"]
 
-[ext_resource type="Texture2D" uid="uid://c33ef7ft8b8vu" path="res://Idle (34x44).png" id="1_uf0ds"]
+[ext_resource type="Texture2D" uid="uid://c33ef7ft8b8vu" path="res://Enemy Idle (34x44).png" id="1_uf0ds"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1pxf2"]
 size = Vector2(63, 62)
@@ -80,4 +80,4 @@ position = Vector2(14.5, 12)
 scale = Vector2(1.85294, 1.45455)
 sprite_frames = SubResource("SpriteFrames_qj7mm")
 autoplay = "default"
-frame_progress = 0.68657
+frame_progress = 0.616867
