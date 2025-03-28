@@ -1,18 +1,18 @@
-[gd_scene load_steps=14 format=3 uid="uid://c548wplfswymr"]
+[gd_scene load_steps=14 format=3 uid="uid://2wy4r78v8eup"]
 
 [ext_resource type="Script" path="res://game_manager.gd" id="1_0pt7d"]
-[ext_resource type="Texture2D" uid="uid://bj7685eascgvt" path="res://images/back.png" id="2_7ysnk"]
+[ext_resource type="Texture2D" uid="uid://c3khbggbpqgse" path="res://images/Blue.png" id="2_dqp68"]
 [ext_resource type="Texture2D" uid="uid://dovsats1kxb66" path="res://images/Terrain (16x16).png" id="3_5rcbe"]
 [ext_resource type="PackedScene" uid="uid://bcyl180yl4444" path="res://scenes/character.tscn" id="4_3jryt"]
-[ext_resource type="PackedScene" uid="uid://ce8ogykdow5s" path="res://scenes/enemy.tscn" id="5_m7k3l"]
+[ext_resource type="PackedScene" uid="uid://bjhqsd5j1nh1l" path="res://scenes/enemy.tscn" id="5_m7k3l"]
 [ext_resource type="PackedScene" uid="uid://c4q7inio8iaqt" path="res://scenes/strawberry.tscn" id="5_ndws7"]
-[ext_resource type="PackedScene" uid="uid://b4sjg5yawy77e" path="res://scenes/level3.tscn" id="6_x2mph"]
+[ext_resource type="PackedScene" uid="uid://cnrkhsym6ec81" path="res://scenes/level3.tscn" id="6_x2mph"]
 [ext_resource type="PackedScene" uid="uid://bufehfj38qhkj" path="res://scenes/End.tscn" id="7_1832w"]
 [ext_resource type="Texture2D" uid="uid://bu1x3ccig0xkq" path="res://images/heart.png" id="8_1yc0k"]
 [ext_resource type="AudioStream" uid="uid://84qee5bhq8m4" path="res://Sounds/Music/level1.ogg" id="9_c4bl5"]
 [ext_resource type="AudioStream" uid="uid://bdcyb5fskbnfd" path="res://Sounds/SoundEffects/Coin.wav" id="10_xh8sq"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cri3x"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0j1r8"]
 texture = ExtResource("3_5rcbe")
 0:0/0 = 0
 1:0/0 = 0
@@ -234,7 +234,7 @@ texture = ExtResource("3_5rcbe")
 
 [sub_resource type="TileSet" id="TileSet_0faj2"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_cri3x")
+sources/0 = SubResource("TileSetAtlasSource_0j1r8")
 
 [node name="Node" type="Node"]
 
@@ -251,7 +251,8 @@ offset_left = -10.0
 offset_top = -7.0
 offset_right = 2353.0
 offset_bottom = 666.0
-texture = ExtResource("2_7ysnk")
+texture = ExtResource("2_dqp68")
+stretch_mode = 1
 
 [node name="TileMap" type="TileMap" parent="SceneObjects"]
 texture_filter = 1
