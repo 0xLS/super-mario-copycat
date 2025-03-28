@@ -19,7 +19,7 @@ func decreaseHealth():
 			hearts[i].hide()
 	
 	if (lives == 0):
-		get_tree().reload_current_scene()
+		get_tree().change_scene_to_file("res://scenes/restart_menu.tscn")
 
 func addPoint():
 	points += 1

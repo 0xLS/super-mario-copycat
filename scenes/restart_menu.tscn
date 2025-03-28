@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=3 uid="uid://dd5ujgymvo62v"]
+
+[ext_resource type="Script" path="res://scenes/restart_menu.gd" id="1_al2u0"]
+[ext_resource type="Texture2D" uid="uid://beyj8fp2ioery" path="res://images/Gray.png" id="2_sa6d1"]
+
+[node name="Restart_Menu" type="Node"]
+script = ExtResource("1_al2u0")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+offset_right = 1151.0
+offset_bottom = 648.0
+texture = ExtResource("2_sa6d1")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -351.0
+offset_top = 125.0
+offset_right = 355.0
+offset_bottom = 291.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Game over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Main_Menu" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 128.0
+offset_top = 60.0
+offset_right = 416.0
+offset_bottom = 162.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Go Back"
+
+[node name="Restart" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -416.0
+offset_top = 60.0
+offset_right = -128.0
+offset_bottom = 162.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Restart"
+
+[connection signal="pressed" from="Main_Menu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]

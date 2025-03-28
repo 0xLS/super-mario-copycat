@@ -1,9 +1,11 @@
-[gd_scene load_steps=35 format=3 uid="uid://ce8ogykdow5s"]
+[gd_scene load_steps=37 format=3 uid="uid://ce8ogykdow5s"]
 
 [ext_resource type="Script" path="res://scenes/enemy.gd" id="1_f158n"]
 [ext_resource type="Texture2D" uid="uid://c33ef7ft8b8vu" path="res://images/bunny/Enemy Idle (34x44).png" id="1_uf0ds"]
 [ext_resource type="Texture2D" uid="uid://coorvad113uqc" path="res://images/bunny/Hit (34x44).png" id="2_02xa1"]
 [ext_resource type="Texture2D" uid="uid://tk07d7en15gx" path="res://images/bunny/Run (34x44).png" id="3_307au"]
+[ext_resource type="AudioStream" uid="uid://bsannks4g3lek" path="res://Sounds/SoundEffects/Hit.wav" id="5_wel4h"]
+[ext_resource type="AudioStream" uid="uid://ctaxtp50dro2o" path="res://Sounds/SoundEffects/death.wav" id="6_qxwn8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i038p"]
 atlas = ExtResource("2_02xa1")
@@ -242,6 +244,12 @@ shape = SubResource("RectangleShape2D_c54pr")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCollision"]
 position = Vector2(12.5, 33)
 shape = SubResource("RectangleShape2D_o0vpq")
+
+[node name="PlayerHit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_wel4h")
+
+[node name="Death" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_qxwn8")
 
 [connection signal="body_entered" from="PlayerDetection" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="PlayerDetection" to="." method="_on_area_2d_body_exited"]

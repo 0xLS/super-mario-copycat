@@ -4,6 +4,7 @@ extends Area2D
 
 func _on_body_entered(body: Node2D) -> void:
 	if (body.name == 'CharacterBody2D'):
+		get_node("../../../Coin").play()
 		gameManager.addPoint()
 		var tween = get_tree().create_tween() 
 		var tween2 = get_tree().create_tween() 

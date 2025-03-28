@@ -1,22 +1,12 @@
 [gd_scene load_steps=5 format=3 uid="uid://cn48i3uws4br0"]
 
-[ext_resource type="Texture2D" uid="uid://b3qp7x1o830es" path="res://images/Brown.png" id="1_fgeyc"]
 [ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_wobl1"]
 [ext_resource type="Texture2D" uid="uid://oeasprdxb36y" path="res://images/Logo.png" id="2_fhfeq"]
+[ext_resource type="PackedScene" uid="uid://bkit5vvj26r7r" path="res://scenes/bg.tscn" id="4_ba0in"]
 [ext_resource type="AudioStream" uid="uid://v3gn1u584umo" path="res://Sounds/Music/arcade.ogg" id="4_lmtnk"]
 
 [node name="MainMenu" type="Node"]
 script = ExtResource("1_wobl1")
-
-[node name="TextureRect2" type="TextureRect" parent="."]
-texture_filter = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_fgeyc")
-stretch_mode = 1
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchors_preset = 8
@@ -67,6 +57,8 @@ text = "Quit"
 stream = ExtResource("4_lmtnk")
 volume_db = -30.919
 autoplay = true
+
+[node name="BG" parent="." instance=ExtResource("4_ba0in")]
 
 [connection signal="pressed" from="play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]
