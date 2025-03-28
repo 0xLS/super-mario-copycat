@@ -38,7 +38,7 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 func _on_player_death_body_entered(body: Node2D) -> void:
 	if body.name == "CharacterBody2D":
 		get_node("AnimatedSprite2D").play("death")
-		get_node("Death").play()
+		
 		body.jump()
 		await get_node("AnimatedSprite2D").animation_finished
 		self.queue_free()

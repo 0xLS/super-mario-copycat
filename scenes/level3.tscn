@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cnrkhsym6ec81"]
+[gd_scene load_steps=14 format=3 uid="uid://b4sjg5yawy77e"]
 
 [ext_resource type="Script" path="res://game_manager.gd" id="1_11oai"]
 [ext_resource type="Texture2D" uid="uid://bj7685eascgvt" path="res://images/back.png" id="2_tqlxn"]
@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://bcyl180yl4444" path="res://scenes/character.tscn" id="4_ptobl"]
 [ext_resource type="PackedScene" uid="uid://bufehfj38qhkj" path="res://scenes/End.tscn" id="5_56i2l"]
 [ext_resource type="PackedScene" uid="uid://c4q7inio8iaqt" path="res://scenes/strawberry.tscn" id="6_71y2i"]
-[ext_resource type="PackedScene" uid="uid://bmge8km7ah1fy" path="res://scenes/level4.tscn" id="6_vqycw"]
-[ext_resource type="PackedScene" uid="uid://bjhqsd5j1nh1l" path="res://scenes/enemy.tscn" id="7_5cijn"]
+[ext_resource type="PackedScene" path="res://scenes/level4.tscn" id="6_vqycw"]
+[ext_resource type="PackedScene" uid="uid://ce8ogykdow5s" path="res://scenes/enemy.tscn" id="7_5cijn"]
 [ext_resource type="Texture2D" uid="uid://bu1x3ccig0xkq" path="res://images/heart.png" id="8_aovyv"]
 [ext_resource type="AudioStream" uid="uid://84qee5bhq8m4" path="res://Sounds/Music/level1.ogg" id="9_xm8xd"]
 [ext_resource type="AudioStream" uid="uid://bdcyb5fskbnfd" path="res://Sounds/SoundEffects/Coin.wav" id="10_25xrj"]

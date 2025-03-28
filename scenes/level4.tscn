@@ -1,12 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://bmge8km7ah1fy"]
+[gd_scene load_steps=14 format=3 uid="uid://3q6chvvkeskc"]
 
 [ext_resource type="Script" path="res://game_manager.gd" id="1_mglwb"]
 [ext_resource type="Texture2D" uid="uid://bj7685eascgvt" path="res://images/back.png" id="2_bhhq6"]
 [ext_resource type="Texture2D" uid="uid://dovsats1kxb66" path="res://images/Terrain (16x16).png" id="3_grnr5"]
 [ext_resource type="PackedScene" uid="uid://bcyl180yl4444" path="res://scenes/character.tscn" id="4_pkbd4"]
 [ext_resource type="PackedScene" uid="uid://bufehfj38qhkj" path="res://scenes/End.tscn" id="5_m7yar"]
+[ext_resource type="PackedScene" uid="uid://4pm245vef82o" path="res://scenes/bossLevel.tscn" id="6_6t7op"]
 [ext_resource type="PackedScene" uid="uid://c4q7inio8iaqt" path="res://scenes/strawberry.tscn" id="6_syie8"]
-[ext_resource type="PackedScene" uid="uid://bjhqsd5j1nh1l" path="res://scenes/enemy.tscn" id="7_dh14g"]
+[ext_resource type="PackedScene" uid="uid://ce8ogykdow5s" path="res://scenes/enemy.tscn" id="7_dh14g"]
 [ext_resource type="Texture2D" uid="uid://bu1x3ccig0xkq" path="res://images/heart.png" id="8_dokor"]
 [ext_resource type="AudioStream" uid="uid://84qee5bhq8m4" path="res://Sounds/Music/level1.ogg" id="9_tnkr0"]
 [ext_resource type="AudioStream" uid="uid://bdcyb5fskbnfd" path="res://Sounds/SoundEffects/Coin.wav" id="10_q201c"]
@@ -272,6 +273,7 @@ position_smoothing_speed = 7.0
 
 [node name="End" parent="SceneObjects" instance=ExtResource("5_m7yar")]
 position = Vector2(2253, 304)
+target_level = ExtResource("6_6t7op")
 
 [node name="Collectables group" type="Node" parent="SceneObjects"]
 

@@ -1,0 +1,75 @@
+[gd_scene load_steps=10 format=3 uid="uid://djfcqms0d7lsc"]
+
+[ext_resource type="Script" path="res://scenes/boss.gd" id="1_vyipc"]
+[ext_resource type="Texture2D" uid="uid://dvj7tsej01y51" path="res://images/Boss.png" id="2_qf0yn"]
+[ext_resource type="AudioStream" uid="uid://cx27slwx4h411" path="res://Sounds/SoundEffects/fireball.wav" id="5_b0fak"]
+[ext_resource type="AudioStream" uid="uid://bsannks4g3lek" path="res://Sounds/SoundEffects/Hit.wav" id="5_o621s"]
+[ext_resource type="AudioStream" uid="uid://ctaxtp50dro2o" path="res://Sounds/SoundEffects/death.wav" id="6_mrdgj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lyokv"]
+size = Vector2(142.5, 296.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bfp3s"]
+radius = 2347.01
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c54pr"]
+size = Vector2(74, 87.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o0vpq"]
+size = Vector2(231, 186)
+
+[node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_vyipc")
+
+[node name="Boss" type="Sprite2D" parent="."]
+position = Vector2(9, 5)
+texture = ExtResource("2_qf0yn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8.75, 71.25)
+shape = SubResource("RectangleShape2D_lyokv")
+
+[node name="PlayerDetection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
+visible = false
+position = Vector2(11, 24)
+shape = SubResource("CircleShape2D_bfp3s")
+
+[node name="PlayerDeath" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDeath"]
+position = Vector2(9, -78)
+shape = SubResource("RectangleShape2D_c54pr")
+
+[node name="PlayerCollision" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCollision"]
+position = Vector2(12.5, 128)
+shape = SubResource("RectangleShape2D_o0vpq")
+
+[node name="PlayerHit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_o621s")
+
+[node name="Death" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_mrdgj")
+
+[node name="Fireball" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_b0fak")
+volume_db = -15.928
+
+[node name="SpeechBubble" type="Label" parent="."]
+offset_left = -235.0
+offset_top = -288.0
+offset_right = 238.0
+offset_bottom = -167.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Do your Homework!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="PlayerDetection" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="PlayerDetection" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="PlayerDeath" to="." method="_on_player_death_body_entered"]
+[connection signal="body_entered" from="PlayerCollision" to="." method="_on_player_collision_body_entered"]

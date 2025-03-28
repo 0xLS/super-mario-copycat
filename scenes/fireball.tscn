@@ -1,0 +1,72 @@
+[gd_scene load_steps=11 format=3 uid="uid://duqvj6ltrbnsu"]
+
+[ext_resource type="Texture2D" uid="uid://c1f7sji853hwi" path="res://images/spritesheet.png" id="1_a7ti5"]
+[ext_resource type="Script" path="res://scenes/fireball.gd" id="1_da5w0"]
+[ext_resource type="AudioStream" uid="uid://bsannks4g3lek" path="res://Sounds/SoundEffects/Hit.wav" id="3_pl2sa"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_77ifa"]
+radius = 42.0119
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k26ap"]
+atlas = ExtResource("1_a7ti5")
+region = Rect2(0, 0, 29, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b5csn"]
+atlas = ExtResource("1_a7ti5")
+region = Rect2(29, 0, 29, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5cpa3"]
+atlas = ExtResource("1_a7ti5")
+region = Rect2(58, 0, 29, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sc0j6"]
+atlas = ExtResource("1_a7ti5")
+region = Rect2(87, 0, 29, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qd0ce"]
+atlas = ExtResource("1_a7ti5")
+region = Rect2(116, 0, 29, 27)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u1jcy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k26ap")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b5csn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5cpa3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sc0j6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qd0ce")
+}],
+"loop": true,
+"name": &"Fireball",
+"speed": 5.0
+}]
+
+[node name="Fireball" type="Area2D"]
+script = ExtResource("1_da5w0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(27, 25)
+shape = SubResource("CircleShape2D_77ifa")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(23, 26)
+scale = Vector2(2.36207, 2.27778)
+sprite_frames = SubResource("SpriteFrames_u1jcy")
+animation = &"Fireball"
+autoplay = "Fireball"
+frame = 1
+frame_progress = 0.463826
+
+[node name="PlayerHit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_pl2sa")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

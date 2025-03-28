@@ -1,19 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://dd5ujgymvo62v"]
+[gd_scene load_steps=4 format=3 uid="uid://duj3atox34eks"]
 
-[ext_resource type="Script" path="res://scenes/restart_menu.gd" id="1_al2u0"]
-[ext_resource type="PackedScene" uid="uid://bkit5vvj26r7r" path="res://scenes/bg.tscn" id="2_lgqnr"]
-[ext_resource type="AudioStream" uid="uid://v3gn1u584umo" path="res://Sounds/Music/arcade.ogg" id="2_n1bkr"]
+[ext_resource type="Script" path="res://scenes/restart_menu.gd" id="1_f522v"]
+[ext_resource type="PackedScene" uid="uid://bkit5vvj26r7r" path="res://scenes/bg.tscn" id="2_e7ace"]
+[ext_resource type="AudioStream" uid="uid://v3gn1u584umo" path="res://Sounds/Music/arcade.ogg" id="3_kvi86"]
 
-[node name="Restart_Menu" type="Node"]
-script = ExtResource("1_al2u0")
-
-[node name="music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_n1bkr")
-volume_db = -9.369
-autoplay = true
-parameters/looping = true
-
-[node name="BG" parent="." instance=ExtResource("2_lgqnr")]
+[node name="Win" type="Node"]
+script = ExtResource("1_f522v")
 
 [node name="Label" type="Label" parent="."]
 anchors_preset = 5
@@ -26,7 +18,7 @@ offset_bottom = 291.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 50
-text = "Game over"
+text = "You won!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -59,6 +51,13 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 30
 text = "Restart"
+
+[node name="BG" parent="." instance=ExtResource("2_e7ace")]
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_kvi86")
+autoplay = true
+parameters/looping = true
 
 [connection signal="pressed" from="Main_Menu" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]
